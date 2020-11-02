@@ -13,4 +13,21 @@ router.get("/profile/:id", (req, res) => {
   });
 });
 
+//EDIT USER PROFILE
+router.put("/profile/:id", (req, res) => {
+  UserModel.update(req.body, {
+    where: {
+      id: req.params.id,
+    },
+    returning: true,
+  }).then((updatedUser) => {
+    res.redirect(`/users/profile/${req.params.id}`);
+  });
+});
+//EDIT USER PROFILE
+router.delete("/:id", (req, res) => {
+  UserModel.destroy({where: {id: req.params.id} }).then(() =>{
+    res.redirect("/");
+  });
+  });
 module.exports = router;
