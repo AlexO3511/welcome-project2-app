@@ -24,7 +24,7 @@ router.put("/profile/:id", (req, res) => {
     res.redirect(`/users/profile/${req.params.id}`);
   });
 });
-//EDIT USER PROFILE
+//DELETE USER PROFILE
 router.delete("/:id", (req, res) => {
   UserModel.destroy({where: {id: req.params.id} }).then(() =>{
     res.redirect("/");
