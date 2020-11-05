@@ -92,6 +92,16 @@ router.get("/profile/:id", (req, res) => {
 //     });
 //   });
 // });
+//Fetch User Network 
+
+router.get("/profile/:id/network", function(req, res){
+  UserModel.findAll().then((allUsers)=>{
+    res.render("users/userNetwork.ejs",{
+      user: allUsers
+    })
+  })
+})
+
 //DELETE USER PROFILE
 router.delete("/:id", (req, res) => {
   UserModel.destroy({where: {id: req.params.id} }).then(() =>{
