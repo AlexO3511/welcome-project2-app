@@ -13,5 +13,8 @@ router.get("/cityguide", (req, res) => {
     });
   });
 
+  router.get('/aboutus', (req, res)=>{
+    res.render('aboutus.ejs');
+});
 
   module.exports = router;
