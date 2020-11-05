@@ -10,9 +10,11 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-  //     Business.belongsTo(models.User,{
-  //       foreignKey: userId
-  //     }); 
+      Business.belongsTo(models.User,{
+        through: "businessuser",
+        foreignKey: "businessId",
+        otherKey: "userId",
+      }); 
      }
    };
   Business.init({
@@ -21,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
     website: DataTypes.STRING,
     imageLink: DataTypes.STRING,
     services: DataTypes.STRING,
-
+    businessId: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'Business',

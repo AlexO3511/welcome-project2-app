@@ -7,13 +7,23 @@
     <link rel="stylesheet" href="/app.css"/>
 </head>
 <body>
+    <header>
+        <h1>Garden City Guide</h1>
+    </header>
     You made it!
     <ul>
         <% for(let i=0; i<businesses.length; i++) { %> </a>
             <li>
-                <%=businesses[i].name%>
+                <%=businesses[i].name%><br/>
+                <%=businesses[i].address%><br/>
+               <a href= "<%=businesses[i].website%>"><%=businesses[i].website%></a><br/>
+                <%=businesses[i].services%><br/>
+                <br/>
+                <img src = "<%=businesses[i].imageLink%>" alt ="business">
             </li> 
             <% } %>
     </ul>
+    <br /><br />
+    <a href="/">Back to Homepage</a>
 </body>
 </html>

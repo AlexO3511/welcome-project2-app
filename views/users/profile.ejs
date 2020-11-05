@@ -31,7 +31,18 @@
       School Attended:
       <input type="text" name="almaMater" value="<%=user.almaMater%>" /><br />
       <br />
+
+      <h2>Add the places you have visited!</h2>
+      <select name="business">
+        <% for (let i=0; i<business.length; i++) { let selected = ( i == 0
+          ) ? "selected" : "";%>
+        <option value="<%=business[i].id%>" <%= selected %>> <%= business[i].name %> </option>
+        <% } %>
+      </select>
+      <br/>
+      <br/>
       <input type="submit" value="Edit Profile" />
+      <br/>
     </form>
     <br />
     <form action="/users/<%= user.id %>?_method=DELETE" method="POST">
