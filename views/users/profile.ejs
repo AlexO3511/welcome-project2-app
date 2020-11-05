@@ -10,47 +10,36 @@
     <h1>Welcome to <%= user.name %>'s Profile Page</h1>
 
     <form action="/users/profile/<%=user.id%>?_method=PUT" method="POST">
-      Name: <input type="text" name="name" value="<%=user.name%>" /><br />
-      <br />
-      Username:
-      <input type="text" name="username" value="<%=user.username%>" />
+      Name: <%=user.name%> 
       <br />
       <br />
-      Password:
-      <input type="text" name="password" value="<%=user.password%>" /><br />
+      Username: <%=user.username%>
       <br />
       <br />
-      Email:
-      <input type="text" name="email" value="<%=user.email%>" /><br />
+      Password: <%=user.password%>
       <br />
       <br />
-      Profession:
-      <input type="text" name="profession" value="<%=user.profession%>" /><br />
+      Email: <%=user.email%>
       <br />
       <br />
-      School Attended:
-      <input type="text" name="almaMater" value="<%=user.almaMater%>" /><br />
+      Profession: <%=user.profession%>
       <br />
-
-      <h2>Add the places you have visited!</h2>
-      <select name="business">
-        <% for (let i=0; i<business.length; i++) { let selected = ( i == 0
-          ) ? "selected" : "";%>
-        <option value="<%=business[i].id%>" <%= selected %>> <%= business[i].name %> </option>
-        <% } %>
-      </select>
+      <br />
+      School Attended: <%=user.almaMater%>
+      <br />
+      <br />
+      <h3>Places you have visited: </h3>
+        <% for (let i=0; i<user.Businesses.length; i++) {%>
+            <li>
+                <%=user.Businesses[i].name %>
+            </li>
+            <% } %>
       <br/>
       <br/>
-      <input type="submit" value="Edit Profile" />
-      <br/>
-    </form>
-    <br />
-    <form action="/users/<%= user.id %>?_method=DELETE" method="POST">
-      <input type="submit" value="Delete User" />
-    </form>
 
     <br /><br />
-    <a href="/">Back to Homepage</a>
-    <a href="/users/<%=user.id %>/edit">Edit Profile</a>
+    <a href="/"><button type="button">Back to Homepage</button></a>
+    <a href="/users/<%=user.id %>/edit"><button type="button">Edit Profile</button></a>
+    <a href="#"><button type="button">View Network</button></a>
   </body>
 </html>

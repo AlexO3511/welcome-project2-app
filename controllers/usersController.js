@@ -25,7 +25,7 @@ const BusinessModel = require("../models").Business;
 //     res.redirect(`/users/profile/${req.params.id}`);
 //   });
 // });
-//Show User Profile 
+//Edit User's Profile 
 router.get("/:id/edit", function (req, res) {
   UserModel.findByPk(req.params.id).then((userProfile) => {
     BusinessModel.findAll().then((allBusinesses) => {
@@ -52,33 +52,46 @@ router.put("/:id/edit", (req, res) => {
   });
 });
 
-//Edit User Profile 
+//Show User Profile 
 //Me attempting
-router.get("/profile/:id", function (req, res) {
-  UserModel.findByPk(req.params.id).then((userProfile) => {
-    BusinessModel.findAll().then((allBusinesses) => {
-      res.render("users/profile.ejs", {
-        user: userProfile,
-        business: allBusinesses,
-      });
+// router.get("/profile/:id", function (req, res) {
+//   UserModel.findByPk(req.params.id).then((userProfile) => {
+//     BusinessModel.findAll().then((allBusinesses) => {
+//       res.render("users/profile.ejs", {
+//         user: userProfile,
+//         business: allBusinesses,
+//       });
+//     });
+//   });
+// });
+router.get("/profile/:id", (req, res) => {
+  UserModel.findByPk(req.params.id, {
+    include: [
+      {
+        model: BusinessModel,
+      },
+    ],
+  }).then((user) => {
+    res.render("users/profile.ejs", {
+      user: user,
     });
   });
 });
 
-router.put("/profile/:id", (req, res) => {
-  console.log(req.body);
-  UserModel.update(req.body, {
-    where: { id: req.params.id },
-    returning: true,
-  }).then((updatedProfile) => {
-    BusinessModel.findByPk(req.body.business).then((foundBusiness) => {
-      UserModel.findByPk(req.params.id).then((foundUser) => {
-        foundUser.addBusiness(foundBusiness);
-        res.redirect(`/users/profile/${req.params.id}`);
-      });
-    });
-  });
-});
+// router.put("/profile/:id", (req, res) => {
+//   console.log(req.body);
+//   UserModel.update(req.body, {
+//     where: { id: req.params.id },
+//     returning: true,
+//   }).then((updatedProfile) => {
+//     BusinessModel.findByPk(req.body.business).then((foundBusiness) => {
+//       UserModel.findByPk(req.params.id).then((foundUser) => {
+//         foundUser.addBusiness(foundBusiness);
+//         res.redirect(`/users/profile/${req.params.id}`);
+//       });
+//     });
+//   });
+// });
 //DELETE USER PROFILE
 router.delete("/:id", (req, res) => {
   UserModel.destroy({where: {id: req.params.id} }).then(() =>{
