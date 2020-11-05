@@ -25,6 +25,34 @@ const BusinessModel = require("../models").Business;
 //     res.redirect(`/users/profile/${req.params.id}`);
 //   });
 // });
+//Show User Profile 
+router.get("/:id/edit", function (req, res) {
+  UserModel.findByPk(req.params.id).then((userProfile) => {
+    BusinessModel.findAll().then((allBusinesses) => {
+      res.render("users/edit.ejs", {
+        user: userProfile,
+        business: allBusinesses,
+      });
+    });
+  });
+});
+
+router.put("/:id/edit", (req, res) => {
+  console.log(req.body);
+  UserModel.update(req.body, {
+    where: { id: req.params.id },
+    returning: true,
+  }).then((updatedProfile) => {
+    BusinessModel.findByPk(req.body.business).then((foundBusiness) => {
+      UserModel.findByPk(req.params.id).then((foundUser) => {
+        foundUser.addBusiness(foundBusiness);
+        res.redirect(`/users/${req.params.id}/edit`);
+      });
+    });
+  });
+});
+
+//Edit User Profile 
 //Me attempting
 router.get("/profile/:id", function (req, res) {
   UserModel.findByPk(req.params.id).then((userProfile) => {
