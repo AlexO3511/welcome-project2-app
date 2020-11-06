@@ -4,32 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>User Edit Profile Page</title>
+    <link rel="stylesheet" href="/app.css"/>
   </head>
 
-  <body>
+  <body class="loginBackgrnd">
+    <div class="login">
     <h1>Edit <%= user.name %>'s Profile Page</h1>
-
     <form action="/users/<%=user.id%>/edit?_method=PUT" method="POST">
-      Name: <input type="text" name="name" value="<%=user.name%>" /><br />
-      <br />
+      Name: 
+      <p><input type="text" name="name" value="<%=user.name%>" /></p>
       Username:
-      <input type="text" name="username" value="<%=user.username%>" />
-      <br />
-      <br />
+      <p><input type="text" name="username" value="<%=user.username%>" /></p>
       Password:
-      <input type="text" name="password" value="<%=user.password%>" /><br />
-      <br />
-      <br />
+      <p><input type="text" name="password" value="<%=user.password%>" /></p>
       Email:
-      <input type="text" name="email" value="<%=user.email%>" /><br />
-      <br />
-      <br />
+      <p><input type="text" name="email" value="<%=user.email%>" /></p>
       Profession:
-      <input type="text" name="profession" value="<%=user.profession%>" /><br />
-      <br />
-      <br />
+      <p><input type="text" name="profession" value="<%=user.profession%>" /></p>
       School Attended:
-      <input type="text" name="almaMater" value="<%=user.almaMater%>" /><br />
+      <p><input type="text" name="almaMater" value="<%=user.almaMater%>" /></p>
       <br />
 
       <h2>Add the places you have visited!</h2>
@@ -41,16 +34,15 @@
       </select>
       <br/>
       <br/>
-      <input type="submit" value="Edit Profile" />
+      <p class="submit"><input type="submit" value="Edit Profile" />
       <br/>
     </form>
     <br />
     <form action="/users/<%= user.id %>?_method=DELETE" method="POST">
-      <input type="submit" value="Delete User" />
+    <p class="submit"><input type="submit" value="Delete User" />
     </form>
-
     <br /><br />
     <a href="/">Back to Homepage</a>
-    
+    </div>
   </body>
 </html>
