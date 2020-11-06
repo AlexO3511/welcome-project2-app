@@ -1,43 +1,45 @@
-## Deere Project 2 Starter Code
+# Welcome-project2-app
 
-## Set Up
+# Welcome to Garden City Professional<br>
+The Welcome App was designed to assist those moving into Augusta, Georgia also known as Garden City and Home of the masters. We all have had the same issues with moving to a new city: not knowing anyone, where to stay, where the best food is etc. This app will aid those in expanding their professional network while also helping them transition into a new city. 
 
-1. Fork and clone this repo
-1. `cd` into the folder and run `npm install`
-1. In the root of your app, `touch .env` and add:
+# Screenshots 
+## Wireframe 
+![alt text](https://i.imgur.com/LpoXKoq.png) <br>
+![alt text](https://i.imgur.com/y47fXiK.png)<br>
+![alt text](https://i.imgur.com/eU1SJSK.png)<br>
+![alt text](https://i.imgur.com/adu65Tt.png)<br>
 
-   ```bash
-   PORT=3000
-   JWT_SECRET=pancakes
-   ```
+# Welcome 
+![alt text](https://i.imgur.com/2XgVznt.png)<br>
 
-1. Check out your `config/config.json` file. You'll need to create a database called `project2_development`
-1. Sequelize is included in the app. You have a `User` model. Run `db:migrate` to create the `Users` table in your database.
-1. Run `nodemon` and go to the Homepage: `localhost:3000/`
+# User Stories 
+* As a user, I should be presented with welcome page at index<br>
+* As a user, I should have access to a city activity guide. <br>
+* As a user, I should be able to sign up for membership and newsletter.<br>
+* As a user, I want to be able to view popular businesses in the area.<br>
+* As a user, I want to be albe to view network of membership.<br>
+* As a user, Reviews from current members should be accessible. <br>
+* As a user, I should be able to login to view profile after sign up. <br>
+* As a user, I should be able to store places I would like to visit.<br>
+* As a user, I should be able to go back to home page from profile page.<br>
+* As a user, I should be able to view about us page. <br>
 
-![](https://i.imgur.com/uuhrOxQ.png)
+# Technology Used <br>
+* CSS5 <br>
+* ES6 <br>
+* HTML5 <br>
+* NPX <br>
+* NPM <br>
+* Heroku <br>
+* PG Admin <br>
 
-<br>
+# Installation <br>
+None needed to use. <br>
 
-## Routes
+# Future Plans <br>
+* More CSS Styling <br>
+* Add Business Feature <br>
+* Review Business Feature <br>
+* Images for Profiles <br>
 
-You have the following routes available.
-
-#### controllers/authController.js
-
-- GET and POST `localhost:3000/auth/signup`
-- GET and POST `localhost:3000/auth/login`
-- GET `localhost:3000/auth/logout`
-
-#### controllers/usersController.js
-
-- GET `localhost:3000/profile/:id`
-
-<br>
-
-## Additional Resources
-
-- [Fruit App Solution](https://git.generalassemb.ly/jdr-0622/fruit-app-in-class)
-- [Pokemon Express Solution](https://git.generalassemb.ly/jdr-0622/pokemon-express-sequelize6)
-- [Google Routes Spreadsheet](https://docs.google.com/spreadsheets/d/14-LHKXLtEkp_vKEz3qSKjREnrmSyzQ9fimTlmrPsZsQ/edit#gid=0)
-- [JSON Web Tokens](https://jwt.io/)
