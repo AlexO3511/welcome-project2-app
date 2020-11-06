@@ -2,6 +2,8 @@
 
 # Welcome to Garden City Professional<br>
 The Welcome App was designed to assist those moving into Augusta, Georgia also known as Garden City and Home of the masters. We all have had the same issues with moving to a new city: not knowing anyone, where to stay, where the best food is etc. This app will aid those in expanding their professional network while also helping them transition into a new city. 
+# Application
+https://welcome-to-garden-city-app.herokuapp.com/
 
 # Screenshots 
 ## Wireframe 
@@ -10,6 +12,14 @@ The Welcome App was designed to assist those moving into Augusta, Georgia also k
 ![alt text](https://i.imgur.com/eU1SJSK.png)<br>
 ![alt text](https://i.imgur.com/adu65Tt.png)<br>
 
+## Database
+### Business Table
+![alt text](https://i.imgur.com/MzjZglU.png)
+### User Table
+![alt text](https://i.imgur.com/qJPGcyM.png)
+### Many to Many Association <br>
+Foreign Keys BuinessId & User Id through businessuser table.<br>
+![alt text](https://i.imgur.com/5jU0zeU.png)
 # Welcome 
 ![alt text](https://i.imgur.com/2XgVznt.png)<br>
 
