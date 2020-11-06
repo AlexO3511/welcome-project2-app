@@ -10,8 +10,7 @@
     <header>
         <h1>Garden City Guide</h1>
     </header>
-    You made it!
-    <ul>
+    <ul class='business'>
         <% for(let i=0; i<businesses.length; i++) { %> </a>
             <li>
                 <%=businesses[i].name%><br/>
@@ -21,7 +20,10 @@
                 <br/>
                 <img src = "<%=businesses[i].imageLink%>" alt ="business">
             </li> 
+        </br>
             <% } %>
+        </br>
+    </br>
     </ul>
     <br /><br />
     <a href="/">Back to Homepage</a>
