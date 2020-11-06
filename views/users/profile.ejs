@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="/app.css"/>
   </head>
 
-  <body>
-    <header>
+  
+  <header>
       <h1>Welcome to <%= user.name %>'s Profile Page</h1>
   </header>
-
+  <body>
     <form action="/users/profile/<%=user.id%>?_method=PUT" method="POST">
       Name: <%=user.name%> 
       <br />
